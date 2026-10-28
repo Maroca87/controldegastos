@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f7f4"><meta name="description" content="Control simple de compras con tarjeta y fechas de pago.">
+  <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Cuenta Clara">
+  <link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <title>Cuenta Clara</title>
+</head>
+<body>
+  <main class="shell">
+    <section id="lockScreen" class="lock-screen" hidden>
+      <div class="brand-mark">cc</div><p class="eyebrow">TU ESPACIO PERSONAL</p><h1 id="lockTitle">Cuenta Clara</h1><p id="lockMessage" class="muted">Tus datos se guardan cifrados en este dispositivo.</p>
+      <form id="unlockForm" class="lock-form"><label for="pinInput" id="pinLabel">Crea un PIN de 6 dígitos</label><input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" minlength="6" autocomplete="off" placeholder="••••••" required><button class="primary" id="unlockButton">Crear acceso</button><p id="lockError" class="error" aria-live="polite"></p></form>
+      <p class="tiny">El PIN no se puede recuperar. Tus datos permanecen en este dispositivo.</p>
+    </section>
+    <div id="app" hidden>
+      <header class="topbar"><div><p class="eyebrow">CONTROL PERSONAL</p><h1>Cuenta Clara</h1></div><button class="icon-button" id="lockButton" aria-label="Bloquear aplicación" title="Bloquear">⌑</button></header>
+      <section class="welcome"><div><p id="todayLabel" class="muted"></p><h2>Lo que tienes<br>por pagar.</h2></div><div class="total"><span>Pendiente</span><strong id="pendingTotal">₡0</strong></div></section>
+      <section id="alertBox" class="alert-box" hidden></section>
+      <section class="section-heading"><div><p class="eyebrow">TUS COMPRAS</p><h2>Movimientos</h2></div><button id="addButton" class="add-button" aria-label="Agregar compra">+</button></section>
+      <div id="emptyState" class="empty" hidden><div class="empty-icon">＋</div><h3>Todo empieza aquí</h3><p>Agrega una compra de tarjeta para recordar cuándo pagarla.</p></div>
+      <ul id="expenseList" class="expense-list"></ul>
+      <footer><span>Solo tú tienes acceso</span><button id="exportButton" class="text-button">Exportar respaldo</button></footer>
+    </div>
+  </main>
+  <dialog id="expenseDialog"><form id="expenseForm" method="dialog"><div class="dialog-head"><div><p class="eyebrow">NUEVO MOVIMIENTO</p><h2>Agregar compra</h2></div><button type="button" class="icon-button" id="closeDialog" aria-label="Cerrar">×</button></div>
+    <label>Descripción<input id="description" maxlength="60" placeholder="Ej. Supermercado" required></label>
+    <div class="field-row"><label>Monto (₡)<input id="amount" type="number" min="1" step="1" inputmode="decimal" placeholder="0" required></label><label>Tarjeta<input id="card" maxlength="24" placeholder="Ej. Visa •• 1234" required></label></div>
+    <div class="field-row"><label>Fecha de compra<input id="purchaseDate" type="date" required></label><label>Fecha límite de pago<input id="dueDate" type="date" required></label></div>
+    <p class="form-note">No guardes el número completo ni el código de seguridad de tu tarjeta.</p><button class="primary" type="submit">Guardar compra</button>
+  </form></dialog>
+  <input id="importFile" type="file" accept="application/json" hidden>
+  <script src="app.js"></script>
+</body></html>
+
