@@ -1,9 +1,12 @@
 # Cuenta Clara
 
-PWA privada y minimalista para registrar compras con tarjeta, anotar el día de compra y llevar el estado de pago.
+PWA minimalista para registrar compras con tarjeta, llevar su estado de pago y consultar un historial reciente.
 
-## Importante al abrir
-No abras `index.html` directamente desde el disco (`file://`). El cifrado necesita el sitio por HTTPS; GitHub Pages proporciona HTTPS.
+## Uso
+- **Por pagar** muestra las compras pendientes. Al marcarlas pagadas pasan al **Historial**.
+- Desde el historial puedes devolver una compra a pendientes.
+- El historial conserva compras pagadas de los últimos tres meses según la fecha de compra. Las pendientes no se eliminan por antigüedad.
+- La calculadora flotante permite operaciones básicas.
 
 ## Publicar en GitHub Pages
 1. Crea un repositorio en GitHub y sube el contenido de esta carpeta.

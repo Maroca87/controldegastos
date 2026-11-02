@@ -17,10 +17,24 @@
     <div id="app" hidden>
       <header class="topbar"><div><p class="eyebrow">CONTROL PERSONAL</p><h1>Cuenta Clara</h1></div><button class="icon-button" id="lockButton" aria-label="Bloquear aplicación" title="Bloquear">⌑</button></header>
       <section class="welcome"><div><p id="todayLabel" class="muted"></p><h2>Tus compras<br>con tarjeta.</h2></div><div class="total"><span>Pendiente</span><strong id="pendingTotal">₡0</strong></div></section>
-      <section class="section-heading"><div><p class="eyebrow">TUS COMPRAS</p><h2>Movimientos</h2></div><button id="addButton" class="add-button" aria-label="Agregar compra">+</button></section>
-      <div id="emptyState" class="empty" hidden><div class="empty-icon">＋</div><h3>Todo empieza aquí</h3><p>Agrega una compra de tarjeta para llevar el control.</p></div>
+      <section class="section-heading"><div><p class="eyebrow">TUS COMPRAS</p><h2 id="viewTitle">Pendientes</h2></div><button id="addButton" class="add-button" aria-label="Agregar compra">+</button></section>
+      <nav class="view-switch" aria-label="Movimientos"><button id="pendingTab" class="view-tab selected" type="button" aria-pressed="true">Por pagar <span id="pendingCount">0</span></button><button id="historyTab" class="view-tab" type="button" aria-pressed="false">Historial <span id="historyCount">0</span></button></nav>
+      <p id="historyNote" class="history-note" hidden>Se conservan las compras pagadas de los últimos tres meses.</p>
+      <div id="emptyState" class="empty" hidden><div class="empty-icon">＋</div><h3 id="emptyTitle">Todo empieza aquí</h3><p id="emptyMessage">Agrega una compra de tarjeta para llevar el control.</p></div>
       <ul id="expenseList" class="expense-list"></ul>
       <footer><span>Solo tú tienes acceso</span><button id="exportButton" class="text-button">Exportar respaldo</button></footer>
+      <button id="calculatorToggle" class="calculator-toggle" type="button" aria-label="Abrir calculadora" title="Calculadora" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></button>
+      <section id="calculatorPanel" class="calculator-panel" aria-label="Calculadora" hidden>
+        <div class="calculator-head"><span>Calculadora</span><button id="calculatorClose" class="icon-button" type="button" aria-label="Cerrar calculadora">×</button></div>
+        <output id="calcDisplay" class="calculator-display" aria-live="polite">0</output>
+        <div class="calculator-keys">
+          <button type="button" data-calc="clear" class="calc-muted">C</button><button type="button" data-calc="backspace" class="calc-muted">⌫</button><button type="button" data-calc="operator" data-value="/" class="calc-op">÷</button>
+          <button type="button" data-calc="digit" data-value="7">7</button><button type="button" data-calc="digit" data-value="8">8</button><button type="button" data-calc="digit" data-value="9">9</button><button type="button" data-calc="operator" data-value="*" class="calc-op">×</button>
+          <button type="button" data-calc="digit" data-value="4">4</button><button type="button" data-calc="digit" data-value="5">5</button><button type="button" data-calc="digit" data-value="6">6</button><button type="button" data-calc="operator" data-value="-" class="calc-op">−</button>
+          <button type="button" data-calc="digit" data-value="1">1</button><button type="button" data-calc="digit" data-value="2">2</button><button type="button" data-calc="digit" data-value="3">3</button><button type="button" data-calc="operator" data-value="+" class="calc-op">+</button>
+          <button type="button" data-calc="sign" class="calc-muted">±</button><button type="button" data-calc="digit" data-value="0">0</button><button type="button" data-calc="digit" data-value="." class="calc-muted">.</button><button type="button" data-calc="equals" class="calc-equals">=</button>
+        </div>
+      </section>
     </div>
   </main>
   <dialog id="expenseDialog"><form id="expenseForm" method="dialog"><div class="dialog-head"><div><p class="eyebrow" id="dialogEyebrow">NUEVO MOVIMIENTO</p><h2 id="dialogTitle">Agregar compra</h2></div><button type="button" class="icon-button" id="closeDialog" aria-label="Cerrar">×</button></div>
@@ -31,5 +45,4 @@
   </form></dialog>
   <script src="app.js"></script>
 </body></html>
-
 
