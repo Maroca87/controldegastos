@@ -9,6 +9,11 @@
 </head>
 <body>
   <main class="shell">
+    <section id="webNotice" class="web-notice" hidden>
+      <div class="brand-mark">cc</div><p class="eyebrow">CUENTA CLARA</p><h1>No hay versión web</h1>
+      <p class="muted">Para usar Cuenta Clara, añádela a la pantalla de inicio y ábrela desde su icono.</p>
+      <div class="install-note"><strong>En iPhone</strong><span>Abre esta página en Safari, toca <b>Compartir</b> y elige <b>Añadir a pantalla de inicio</b>.</span></div>
+    </section>
     <section id="lockScreen" class="lock-screen" hidden>
       <div class="brand-mark">cc</div><p class="eyebrow">TU ESPACIO PERSONAL</p><h1 id="lockTitle">Cuenta Clara</h1><p id="lockMessage" class="muted">Tus datos se guardan cifrados en este dispositivo.</p>
       <form id="unlockForm" class="lock-form"><label for="pinInput" id="pinLabel">Crea un PIN de 6 dígitos</label><input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" minlength="6" autocomplete="off" required><button class="primary" id="unlockButton">Crear acceso</button><p id="lockError" class="error" aria-live="polite"></p></form>
@@ -46,6 +51,7 @@
   </form></dialog>
   <script src="app.js"></script>
 </body></html>
+
 
 
 
